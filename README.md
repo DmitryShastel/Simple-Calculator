@@ -1,11 +1,19 @@
-Task: https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/edit?tab=t.0
+## Innowise Lab Internship: Level 0: Simple calculator 
 
-How to run the app: 
-The application was created through a npm package.
-To build the application locally, use webpack 5, the command to launch the build: npm run build.
-To deploy to gh-pages, use the command: npm run deploy
+Task: [View Task Requirements][task_link]
 
-Progect structure:
+[task_link]: https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/edit?tab=t.0
+
+## How to Run the App
+`Build & Deployment`
+
+`The application was created through an npm package.`  
+`To build the application locally, use webpack 5, the command to launch the build: npm run build.`  
+`To deploy to gh-pages, use the command: npm run deploy.`
+
+
+### Project structure 
+<pre>
 src/
 ├── index.js          # Main app entry point
 ├── styles/           # CSS stylesheets
@@ -23,4 +31,6 @@ src/
     │   └── percentFn.js
     └── PlusMinusFn/  # Sign switching
         └── plusMinus.js
+</pre>
+
 
