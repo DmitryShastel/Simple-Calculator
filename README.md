@@ -1,8 +1,10 @@
 ## Innowise Lab Internship: Level 0: Simple calculator 
 
-Task: [View Task Requirements][task_link]
+Task: [View Task Requirements][task_link]  
+Demo: [GitHub Pages Deployment][gh_pages]
 
 [task_link]: https://docs.google.com/document/d/1zpXXeSae-BlcxPKgw3DhxZA92cspVailrPYoaXSYrW8/edit?tab=t.0
+[gh_pages]: https://dmitryshastel.github.io/Simple-Calculator/
 
 ## How to Run the App
 `Build & Deployment`
