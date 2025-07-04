@@ -18,8 +18,69 @@ let $story = document.querySelector(".story");
 
 initThemeToggle();
 
-function action(data) {
-  let value = typeof data === "string" ? data : this.attributes["inTo"].value;
+// function action(data) {
+//   let value = typeof data === "string" ? data : this.attributes["inTo"].value;
+
+//   if (value === "AC") {
+//     const clearedState = handleAC($input, $story, input, longStory);
+//     input = clearedState.input;
+//     longStory = clearedState.longStory;
+//     return false;
+//   }
+//   if (value === "=")
+//     return handleEquals($input, input, longStory, $story, story, strToMath);
+//   if (value === "+/-") {
+//     const result = handlePlusMinus($input, input);
+//     if (result.shouldUpdate) {
+//       input = result.input;
+//       $input.value = input;
+//     }
+//     return false;
+//   }
+//   if (value === "%") return handlePercent($input, input);
+
+//   if ((story.length && value === ".") || (!input && value === ".")) {
+//     value = "0.";
+//   }
+
+//   if (sim.includes(input[input.length - 1]) && sim.includes(value)) {
+//     if (value !== "-" && sim.includes(input[input.length - 1])) {
+//       input = input.slice(0, -1);
+//     }
+//     if (
+//       (value === "-" && input[input.length - 1] === "-") ||
+//       (value === "-" && input[input.length - 1] === "+")
+//     ) {
+//       input = input.slice(0, -1);
+//     }
+//     if (value !== "-" && sim.includes(input[input.length - 1])) {
+//       input = input.slice(0, -1);
+//     }
+//   }
+
+//   if (input === "" && sim.includes(value) && value !== "-") {
+//     value = "";
+//   }
+
+//   if (story.length && !sim.includes(value)) {
+//     input = "";
+//     longStory = "";
+//   }
+
+//   story = [];
+
+//   input += value;
+//   $input.value = input;
+// }
+
+function action(event) {
+  // Безопасное получение значения из атрибута
+  let value =
+    typeof event === "string"
+      ? event
+      : event.currentTarget.getAttribute("inTo");
+
+  if (!value) return false; // Защита от undefined
 
   if (value === "AC") {
     const clearedState = handleAC($input, $story, input, longStory);
@@ -27,8 +88,11 @@ function action(data) {
     longStory = clearedState.longStory;
     return false;
   }
-  if (value === "=")
+
+  if (value === "=") {
     return handleEquals($input, input, longStory, $story, story, strToMath);
+  }
+
   if (value === "+/-") {
     const result = handlePlusMinus($input, input);
     if (result.shouldUpdate) {
@@ -37,8 +101,12 @@ function action(data) {
     }
     return false;
   }
-  if (value === "%") return handlePercent($input, input);
 
+  if (value === "%") {
+    return handlePercent($input, input);
+  }
+
+  // Остальная логика обработки ввода
   if ((story.length && value === ".") || (!input && value === ".")) {
     value = "0.";
   }
@@ -68,7 +136,6 @@ function action(data) {
   }
 
   story = [];
-
   input += value;
   $input.value = input;
 }
